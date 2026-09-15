@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lively Habitat | Coming Soon</title>
+  <meta name="description" content="Lively Habitat is coming soon — terrariums, indoor plants, bioactive habitat supplies, aquariums, aquascaping materials and carefully selected accessories.">
+  <meta name="theme-color" content="#0a4c3f">
+  <style>
+    :root {
+      --deep: #073f35;
+      --green: #12a653;
+      --green-dark: #087943;
+      --leaf: #dff3e6;
+      --cream: #f7f5ee;
+      --sand: #ebe3d1;
+      --ink: #18332d;
+      --muted: #65756f;
+      --white: #ffffff;
+      --line: rgba(7,63,53,.11);
+      --shadow: 0 18px 50px rgba(7,63,53,.10);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 7%, rgba(18,166,83,.10), transparent 22rem),
+        radial-gradient(circle at 92% 22%, rgba(7,63,53,.08), transparent 25rem),
+        var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 42px 0 58px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card {
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.95);
+      border-radius: 26px;
+      box-shadow: 0 12px 35px rgba(7,63,53,.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand img {
+      width: min(400px, 78vw);
+      height: auto;
+      display: block;
+      border-radius: 18px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      margin-top: 28px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--leaf);
+      color: var(--green-dark);
+      font-weight: 800;
+      letter-spacing: .12em;
+      font-size: .74rem;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px auto 12px;
+      max-width: 820px;
+      font-size: clamp(2.35rem, 6vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+      color: var(--deep);
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.22rem);
+    }
+
+    .hero-copy strong { color: var(--deep); }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--deep);
+      text-decoration: none;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--deep);
+      color: white;
+      box-shadow: 0 10px 25px rgba(7,63,53,.18);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.66);
+      border-color: var(--line);
+      color: var(--deep);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    section { padding: 80px 0; }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    .section-head span {
+      color: var(--green-dark);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
+      margin: 8px 0 10px;
+      color: var(--deep);
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -.03em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.76);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: var(--leaf);
+      color: var(--green-dark);
+      font-size: 1.35rem;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      color: var(--deep);
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .story-main, .story-side {
+      background: linear-gradient(135deg, rgba(223,243,230,.82), rgba(255,255,255,.76));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .story-main h2 {
+      margin: 0 0 14px;
+      color: var(--deep);
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      letter-spacing: -.03em;
+      line-height: 1.08;
+    }
+
+    .story-main p, .story-side p { color: var(--muted); }
+
+    .pill-list {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .pill {
+      border: 1px solid rgba(7,63,53,.11);
+      background: rgba(255,255,255,.70);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: .84rem;
+      font-weight: 700;
+      color: var(--deep);
+    }
+
+    .future {
+      background: var(--deep);
+      color: white;
+      border-radius: 30px;
+      padding: 46px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .future::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 50%;
+      right: -130px;
+      bottom: -160px;
+    }
+
+    .future h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: -.03em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .future p {
+      max-width: 720px;
+      color: rgba(255,255,255,.78);
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .future-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .future-item {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding: 14px;
+      border-radius: 16px;
+      font-weight: 700;
+    }
+
+    .footer {
+      padding: 30px 0 46px;
+      color: var(--muted);
+      font-size: .9rem;
+      text-align: center;
+    }
+
+    .footer strong { color: var(--deep); }
+
+    @media (max-width: 850px) {
+      .products, .future-grid { grid-template-columns: repeat(2, 1fr); }
+      .story { grid-template-columns: 1fr; }
+      section { padding: 62px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 24px, 1120px); }
+      .hero { padding-top: 20px; }
+      .products, .future-grid { grid-template-columns: 1fr; }
+      .card { min-height: 0; }
+      .story-main, .story-side, .future { padding: 25px; }
+      .brand { padding: 5px; border-radius: 20px; }
+      .brand img { border-radius: 14px; }
+    }
+    .section-img {
+  border: 0px solid #ddd;
+  padding: 4px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width:100px;
+}
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="wrap hero-card">
+      <div class="brand" aria-label="Lively Habitat logo">
+        <img src="LH logo.jpg" alt="Lively Habitat logo"></img>
+      </div>
+
+      <div class="eyebrow">Launching soon</div>
+      <h1>Bring a little more nature into everyday living.</h1>
+
+      <p class="hero-copy">
+        <strong>Lively Habitat</strong> is creating an online destination for beautiful,
+        practical and carefully selected products that help you build living habitats
+        at home or in your workspace.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#what-we-offer">See what’s coming</a>
+        <a class="btn btn-secondary" href="#our-philosophy">Our philosophy</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="what-we-offer">
+      <div class="wrap">
+        <div class="section-head">
+          <span>What to expect</span>
+          <h2>Everything you need to create a lively habitat.</h2>
+          <p>
+            We’re building a growing range for beginners and experienced hobbyists,
+            with products chosen for ease of use, quality and the ability to work together.
+          </p>
+        </div>
+
+        <div class="products">
+          <article class="card">
+            
+            <div>
+              <img class="section-img" src="Terrarium.png"></img>
+            </div>
+            <h3>Terrariums &amp; DIY kits</h3>
+            <p>Beautiful terrarium vessels and ready-to-create options for bringing a miniature ecosystem indoors.</p>
+          </article>
+
+          <article class="card">
+              
+            <div>
+              <img class="section-img" src="Terrarium in living room.jpg"></img>
+            </div>
+            <h3>Terrarium &amp; indoor plants</h3>
+            <p>A curated selection of plants suited to terrariums, indoor spaces and nature-inspired displays.</p>
+          </article>
+
+          <article class="card">
+            
+            <div>
+              <img class="section-img" src="Bioactive Terrarium.jpg"></img>
+            </div>
+            <h3>Bioactive habitat supplies</h3>
+            <p>Components and essentials to help you build natural, layered and thriving bioactive habitats.</p>
+          </article>
+
+          <article class="card">
+            
+            <div>
+              <img class="section-img" src="Aquarium.jpg"></img>
+            </div>
+            <h3>Aquariums &amp; nano tanks</h3>
+            <p>Compact aquarium options and essentials for creating calm, living underwater environments.</p>
+          </article>
+
+          <article class="card">
+                        <div>
+              <img class="section-img" src="Aquascape materials.jpg"></img>
+            </div>
+            <h3>Aquascaping materials</h3>
+            <p>Rocks, driftwood and other carefully selected materials for natural-looking aquascapes.</p>
+          </article>
+
+          <article class="card">
+            <img class="section-img" src="accessories.jpg"></img>
+            <h3>Accessories &amp; care essentials</h3>
+            <p>Filters, pumps, tools, fish food and other practical accessories for maintaining healthy habitats.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="our-philosophy">
+      <div class="wrap">
+        <div class="story">
+          <div class="story-main">
+            <h2>Nature should feel simple, accessible and full of life.</h2>
+            <p>
+              Lively Habitat was created with a simple vision: to bring nature closer
+              to everyday living. We believe aquascaping and terrarium building should
+              be enjoyable whether you are just starting out or already deeply passionate
+              about the hobby.
+            </p>
+            <div class="pill-list">
+              <span class="pill">Easy to use</span>
+              <span class="pill">Quality selected</span>
+              <span class="pill">Beginner friendly</span>
+              <span class="pill">Hobbyist focused</span>
+            </div>
+          </div>
+
+          <div class="story-side">
+            <p style="margin-top:0;"><strong>From our first launch and beyond</strong></p>
+            <p>
+              Our range will continue to evolve as Lively Habitat grows, bringing more
+              ways to make home and workspace environments feel calm, natural and alive.
+            </p>
+            <p style="margin-bottom:0;">
+              One aquarium. One terrarium. One habitat at a time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="future">
+          <h2>And there’s more to come.</h2>
+          <p>
+            As we grow, Lively Habitat plans to expand into nature-inspired home décor
+            and a broader range of pet-related products.
+          </p>
+
+          <div class="future-grid">
+            <div class="future-item">Mini fountains</div>
+            <div class="future-item">Ambient lighting</div>
+            <div class="future-item">Decorative elements</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <strong>Lively Habitat</strong> · Melbourne, Australia · Coming soon
+    </div>
+  </footer>
+</body>
+</html>
